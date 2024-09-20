@@ -27,7 +27,6 @@ namespace EmailProvider.Functions
         {
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {message}");
 
-
             CallBackModel callback;
             try
             {
@@ -53,7 +52,6 @@ namespace EmailProvider.Functions
                 return;
             }
         }
-
         public static async Task<IActionResult> SendEmailAsync(string recipientEmail)
         {
             var connectionString = Environment.GetEnvironmentVariable("CommunicationServices");
