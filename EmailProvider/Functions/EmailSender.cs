@@ -13,12 +13,12 @@ namespace EmailProvider.Functions
     public class EmailSender
     {
         private readonly ILogger<EmailSender> _logger;
-        private readonly EmailClient _emailClient;
+        private readonly EmailClient _client;
 
-        public EmailSender(ILogger<EmailSender> logger, EmailClient emailClient)
+        public EmailSender(ILogger<EmailSender> logger, EmailClient emailClient, EmailClient client)
         {
             _logger = logger;
-            _emailClient = emailClient;
+            _client = client;
         }
 
         [FunctionName("EmailSender")]
@@ -66,7 +66,7 @@ namespace EmailProvider.Functions
 
             try
             {
-                var response = await _emailClient.SendAsync(WaitUntil.Completed, emailMessage);
+                var response = await _client.SendAsync(WaitUntil.Completed, emailMessage);
 
                 if(response.HasCompleted)
                 {
