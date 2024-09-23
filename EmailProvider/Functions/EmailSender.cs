@@ -78,7 +78,6 @@ namespace EmailProvider.Functions
             {
                 Console.WriteLine($"Failed to send email: {ex.Message}");
             }
-
 			return new BadRequestResult();
 		}
     }
