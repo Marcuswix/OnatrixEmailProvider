@@ -62,7 +62,8 @@ namespace EmailProvider.Functions
                 PlainText = "Tack för din förfrågan. Detta är ditt bekräftelsemail."
             };
 
-            var sender = "";
+            var sender = Environment.GetEnvironmentVariable("SenderDomain");
+
             var emailMessage = new EmailMessage(sender, recipientEmail, emailContent);
 
             try
