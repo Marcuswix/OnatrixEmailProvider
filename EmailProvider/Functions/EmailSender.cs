@@ -42,7 +42,6 @@ namespace EmailProvider.Functions
                     {
 						log.LogInformation($"Confirmation was NOT sent to {callback.Email}");
 					}
-
                 }
             }
             catch (Exception ex)
