@@ -26,11 +26,9 @@ namespace EmailProvider.Functions
         {
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {message}");
 
-            CallBackModel callback;
-
             try
             {
-                callback = JsonConvert.DeserializeObject<CallBackModel>(message);
+                var callback = JsonConvert.DeserializeObject<ContactFormToSendModel>(message);
 
                 if(callback != null || string.IsNullOrWhiteSpace(callback.Email))
                 {
